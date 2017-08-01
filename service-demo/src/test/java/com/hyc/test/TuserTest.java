@@ -7,11 +7,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.hyc.model.Tuser;
-import com.quick.ServiceHiApplication;
+import com.quick.ServiceDemoApplication;
 import com.quick.service.TuserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = ServiceHiApplication.class)
+@SpringBootTest(classes = ServiceDemoApplication.class)
 public class TuserTest {
 	@Autowired
 	private TuserService tusService;

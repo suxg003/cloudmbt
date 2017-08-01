@@ -25,12 +25,12 @@ import com.quick.utils.ResultStatus;
 @EnableEurekaClient
 @RestController
 //@ServletComponentScan
-public class ServiceHiApplication {
+public class ServiceDemoApplication {
     @Resource
 //	@Autowired
 	private TuserService tuserService;
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceHiApplication.class, args);
+		SpringApplication.run(ServiceDemoApplication.class, args);
 	}
 
 	@Value("${server.port}")
@@ -40,8 +40,5 @@ public class ServiceHiApplication {
 		return "hi "+name+",i am from port:" +port;
 	}
 
-	 @RequestMapping("/888/{id}")
-	    public BaseResp<Tuser> getById(@PathVariable("id")String id){
-	        return new BaseResp<>(ResultStatus.SUCCESS,tuserService.findById(id));
-	    }
+	
 }

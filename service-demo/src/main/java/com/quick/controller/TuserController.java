@@ -16,12 +16,11 @@ import com.quick.utils.ResultStatus;
  *
  */
 @RestController
-@RequestMapping("/tuser")
 public class TuserController {
     @Resource
     private TuserService tuserService;
 
-    @RequestMapping("/123/{id}")
+    @RequestMapping("/888/{id}")
     public BaseResp<Tuser> getById(@PathVariable("id")String id){
         return new BaseResp<>(ResultStatus.SUCCESS,tuserService.findById(id));
     }
