@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Created by fangzhipeng on 2017/4/6.
- */
+ 
 @RestController
 public class HiController {
 
@@ -20,6 +18,16 @@ public class HiController {
     SchedualServiceHi schedualServiceHi;
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
     public BaseResp<Tuser> sayHi(@RequestParam String id){
-        return schedualServiceHi.getById(id);
+    	   //TODO
+    	//前置业务参数
+    	//........id
+    	//.......
+    	//
+    	BaseResp<Tuser> baseResp= schedualServiceHi.getById(id);
+    	//......
+    	//....后续封装返回其他结果集
+    	//.......
+    	
+    	return baseResp;
     }
 }

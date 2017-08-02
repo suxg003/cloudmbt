@@ -7,16 +7,28 @@
 	<artifactId>service-common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
+	<properties>
+		<mybatisplus-spring-boot-starter.version>1.0.4</mybatisplus-spring-boot-starter.version>
+		<mybatisplus.version>2.1-gamma</mybatisplus.version>
+	</properties>
 	<name>service-demo</name>
 	<description>Demo project for Spring Boot</description>
 	<dependencies>
-<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.7.21</version>
-</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatisplus-spring-boot-starter</artifactId>
+			<version>${mybatisplus-spring-boot-starter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>${mybatisplus.version}</version>
+		</dependency>
 	</dependencies>
-	</project>
+</project>
