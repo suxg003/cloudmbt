@@ -14,6 +14,7 @@ import com.hyc.model.Tuser;
 import com.hyc.service.TuserService;
 import com.hyc.utils.BaseResp;
 import com.hyc.utils.ResultStatus;
+
 /**
  * 
  * @author hyc123
@@ -21,31 +22,29 @@ import com.hyc.utils.ResultStatus;
  */
 @RestController
 public class TuserController {
-    @Resource
-    private TuserService tuserService;
-Logger log=org.slf4j.LoggerFactory.getLogger(TuserController.class);
-    @RequestMapping("/888/{id}")
-    public BaseResp<Tuser> getById(@PathVariable("id")String id){
-  
-        return new BaseResp<>(ResultStatus.SUCCESS,tuserService.findById(id));
-    }
-    
-    @RequestMapping("/tuesr/add")
-    public BaseResp<Tuser> addUser(@RequestBody Tuser user){
-    	BaseResp<Tuser> baseResp;
-    	try{
-    	log.info("#############"+user.getUserid()+"#####"+user.getUsername());
-    	tuserService.addUser(user);
-    	 baseResp=new BaseResp<Tuser>(ResultStatus.SUCCESS);
-    	}catch(Exception e){
-    		e.printStackTrace();
-    		 baseResp=new BaseResp<Tuser>(ResultStatus.error_create_failed);	
-    	}
-    	return  baseResp;
-    }
-  
-    
-    
-    
-    
+	@Resource
+	private TuserService tuserService;
+	Logger log = org.slf4j.LoggerFactory.getLogger(TuserController.class);
+
+	@RequestMapping("/888/{id}")
+	public BaseResp<Tuser> getById(@PathVariable("id") String id) {
+
+		return new BaseResp<>(ResultStatus.SUCCESS, tuserService.findById(id));
+	}
+
+	@RequestMapping("/tuesr/add")
+	public BaseResp<Tuser> addUser(@RequestBody Tuser user) {
+		BaseResp<Tuser> baseResp;
+		try {
+			log.info("#############" + user.getUserid() + "#####"
+					+ user.getUsername());
+			tuserService.addUser(user);
+			baseResp = new BaseResp<Tuser>(ResultStatus.SUCCESS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			baseResp = new BaseResp<Tuser>(ResultStatus.error_create_failed);
+		}
+		return baseResp;
+	}
+
 }
