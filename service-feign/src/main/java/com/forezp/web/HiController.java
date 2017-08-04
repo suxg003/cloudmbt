@@ -5,6 +5,7 @@ import com.hyc.model.Tuser;
 import com.hyc.utils.BaseResp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,4 +31,23 @@ public class HiController {
     	
     	return baseResp;
     }
+    @RequestMapping(value = "/useradd",method = RequestMethod.GET)
+    public BaseResp<Tuser> useradd(String userid,String userage,String username){
+    	   //TODO
+    	//前置业务参数
+    	//........id
+    	//.......
+    	//
+    	Tuser t=new Tuser();
+    	t.setUserage(userage);
+    	t.setUserid(userid);
+    	t.setUsername(username);
+    	BaseResp<Tuser> baseResp= schedualServiceHi.addTuser(t);
+    	//......
+    	//....后续封装返回其他结果集
+    	//.......
+    	
+    	return baseResp;
+    }
+    
 }

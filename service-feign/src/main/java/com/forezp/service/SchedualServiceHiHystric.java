@@ -20,4 +20,13 @@ public class SchedualServiceHiHystric implements SchedualServiceHi {
 		br.setMessage("sorry，not call server");
 		return br;
 	}
+
+@Override
+public BaseResp<Tuser> addTuser(Tuser tuser) {
+	BaseResp<Tuser> br=new BaseResp<Tuser>();
+	br.setMessage("######sorry，not call server");
+	return br;
+}
+
+ 
 }
