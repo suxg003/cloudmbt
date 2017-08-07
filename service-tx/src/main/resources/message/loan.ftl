@@ -1,0 +1,1 @@
+【速援贷】尊敬的用户${user_name}，您于${datetime}在我平台申请借款，借款本金${loan_amount}元，利息 ${interest}元，合计${total_amount}元 。您的还款时间是${repay_date} ，请提前筹备资金，保证按时足额还款。谢谢您的合作！

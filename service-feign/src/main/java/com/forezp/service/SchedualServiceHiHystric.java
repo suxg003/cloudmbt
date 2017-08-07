@@ -1,9 +1,14 @@
 package com.forezp.service;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.hyc.model.Tuser;
 import com.hyc.utils.BaseResp;
+
+import feign.Feign;
 
 
 @Component
@@ -27,6 +32,15 @@ public BaseResp<Tuser> addTuser(Tuser tuser) {
 	br.setMessage("######sorry，not call server");
 	return br;
 }
-
- 
+@Configuration
+public class FooConfiguration { 
+	@Bean @Scope("prototype") 
+	public Feign.Builder feignBuilder() {
+		return Feign.builder(); 
+		}
+	@Bean
+	public SchedualServiceHiHystric fb(){
+		return new SchedualServiceHiHystric();
+		}
+	}
 }
