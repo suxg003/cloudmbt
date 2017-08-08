@@ -1,6 +1,8 @@
 package com.forezp.web.user;
 
 import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
 import com.forezp.service.PhoneSendMessageService;
 import com.forezp.web.HiController;
+import com.hyc.utils.Base64;
 import com.hyc.utils.BaseResp;
 
 /**
@@ -37,7 +41,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/smsauth.do", method = RequestMethod.GET)
-	public BaseResp smsauth(@RequestParam String deviceid,
+	public Map<String,String> smsauth(@RequestParam String deviceid,
 			@RequestParam String appid, @RequestParam String phone,
 			String action, String os, String ver) {
 		BaseResp br = new BaseResp();
@@ -52,12 +56,18 @@ public class UserController {
 		if (flag.equals("1")) {
 			br.setCode(100000);
 			br.setMessage("发送成功");
-			br.setData(phone);
 		} else {
 			br.setCode(404);
 			br.setMessage("发送失败");
-			br.setData(phone);
 		}
-		return br;
+		Map result=new HashMap();
+		result.put("result", br);
+		result.put("status", "0");
+		String jsonString= JSON.toJSONString(result); 
+		log.info("--------------jsonString="+jsonString);
+		Map map=new HashMap();
+		map.put("_post_data_",Base64.encode(jsonString.getBytes()));
+//		{"result":{"code":"sys.1002","message":"系统异常"},"status":"0"}
+		return map;
 	}
 }

@@ -1,3 +1,4 @@
 feign 方式客户端调用，类似webservice 实现了 ribbon
 注意：接口上的注解内容是否为已注册的提供方--服务名，传参不能为映射实体接收
 
+http://hyc123-pc:8765/api/v1.0/app/public/smsauth.do?deviceid=123&appid=333&phone=18911798523&action=ver&ver=1.0&os=33
