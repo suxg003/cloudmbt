@@ -4,12 +4,19 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+import com.hyc.service.TxRedisDomainService;
+import com.hyc.utils.AppMap;
 import com.hyc.utils.phone253.com.chuanglan.sms.request.SmsSendRequest;
 import com.hyc.utils.phone253.com.chuanglan.sms.response.SmsSendResponse;
 
@@ -47,10 +54,18 @@ public class Phone253SendService {
 	 * @return
 	 */
 	public String sendMessage(String type, String phone, String msg) {
+		
+		
+		
+		
 		// 1 : 成功 2：失败
 		String flag = "2";
 		String accout = "";
 		String pwd = "";
+		
+		
+		
+		
 		/**
 		 * 发短信
 		 */
