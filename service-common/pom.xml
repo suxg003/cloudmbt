@@ -11,7 +11,7 @@
 		<mybatisplus-spring-boot-starter.version>1.0.4</mybatisplus-spring-boot-starter.version>
 		<mybatisplus.version>2.1-gamma</mybatisplus.version>
 	</properties>
-	<name>service-demo</name>
+	<name>service-common</name>
 	<description>Demo project for Spring Boot</description>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->

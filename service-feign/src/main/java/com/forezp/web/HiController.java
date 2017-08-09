@@ -1,5 +1,7 @@
 package com.forezp.web;
 
+import java.util.List;
+
 import com.forezp.service.SchedualServiceHi;
 import com.hyc.model.Tuser;
 import com.hyc.utils.BaseResp;
@@ -18,18 +20,20 @@ public class HiController {
     @Autowired
     SchedualServiceHi schedualServiceHi;
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
-    public BaseResp<Tuser> sayHi(@RequestParam String id){
+    public List<Tuser> sayHi(@RequestParam String id){
     	   //TODO
     	//前置业务参数
     	//........id
     	//.......
     	//
-    	BaseResp<Tuser> baseResp= schedualServiceHi.getById(id);
+    	List<Tuser> List= schedualServiceHi.getById(id);
     	//......
     	//....后续封装返回其他结果集
     	//.......
-    	
-    	return baseResp;
+   /* 	BaseResp<Tuser> br=new BaseResp();
+    	br.setCode(0);
+    	br.setData(List.get(0));*/
+    	return List;
     }
     @RequestMapping(value = "/useradd",method = RequestMethod.GET)
     public BaseResp<Tuser> useradd(String userid,String userage,String username){

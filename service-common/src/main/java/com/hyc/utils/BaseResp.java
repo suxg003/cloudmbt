@@ -17,7 +17,7 @@ public class BaseResp<T> {
     /**
      * 返回数据
      */
-    private T data;
+    private Object data;
 
     private long currentTime;
 

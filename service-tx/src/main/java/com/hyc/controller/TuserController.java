@@ -1,5 +1,7 @@
 package com.hyc.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.spi.LoggerFactory;
@@ -27,9 +29,9 @@ public class TuserController {
 	Logger log = org.slf4j.LoggerFactory.getLogger(TuserController.class);
 
 	@RequestMapping("/888/{id}")
-	public BaseResp<Tuser> getById(@PathVariable("id") String id) {
+	public List<Tuser> getById(@PathVariable("id") String id) {
 
-		return new BaseResp<>(ResultStatus.SUCCESS, tuserService.findById(id));
+		return   tuserService.findById(id);
 	}
 
 	@RequestMapping("/tuesr/add")

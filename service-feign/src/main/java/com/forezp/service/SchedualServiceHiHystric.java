@@ -1,5 +1,7 @@
 package com.forezp.service;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -19,11 +21,11 @@ public class SchedualServiceHiHystric implements SchedualServiceHi {
     }*/
 
 	@Override
-	public BaseResp<Tuser> getById(String id) {
+	public List<Tuser> getById(String id) {
 		// TODO Auto-generated method stub
 		BaseResp<Tuser> br=new BaseResp<Tuser>();
 		br.setMessage("sorry，not call server");
-		return br;
+		return null;
 	}
 
 @Override
