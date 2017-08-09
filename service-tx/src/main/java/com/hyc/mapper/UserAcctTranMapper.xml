@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.UserAcctTranMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.UserAcctTran">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="loan_no" property="loanNo" />
+		<result column="order_id" property="orderId" />
+		<result column="trade_type" property="tradeType" />
+		<result column="tx_amount" property="txAmount" />
+		<result column="desc_info" property="descInfo" />
+		<result column="status" property="status" />
+		<result column="fee" property="fee" />
+		<result column="cardno" property="cardno" />
+		<result column="fee_type" property="feeType" />
+		<result column="acc_status" property="accStatus" />
+		<result column="escr_channel" property="escrChannel" />
+		<result column="device_id" property="deviceId" />
+		<result column="um_channel" property="umChannel" />
+		<result column="cash_id" property="cashId" />
+		<result column="cash_prize_value" property="cashPrizeValue" />
+		<result column="pay_version" property="payVersion" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="order_time" property="orderTime" />
+		<result column="reserve2" property="reserve2" />
+		<result column="reserve3" property="reserve3" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, user_id AS userId, loan_no AS loanNo, order_id AS orderId, trade_type AS tradeType, tx_amount AS txAmount, desc_info AS descInfo, status, fee, cardno, fee_type AS feeType, acc_status AS accStatus, escr_channel AS escrChannel, device_id AS deviceId, um_channel AS umChannel, cash_id AS cashId, cash_prize_value AS cashPrizeValue, pay_version AS payVersion, create_date_time AS createDateTime, update_time AS updateTime, order_time AS orderTime, reserve2, reserve3
+    </sql>
+</mapper>

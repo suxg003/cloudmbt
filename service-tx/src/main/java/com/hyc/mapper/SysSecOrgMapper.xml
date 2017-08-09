@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.SysSecOrgMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.SysSecOrg">
+		<id column="org_id" property="orgId" />
+		<result column="root_org_id" property="rootOrgId" />
+		<result column="up_org_id" property="upOrgId" />
+		<result column="root_br_org_id" property="rootBrOrgId" />
+		<result column="org_name" property="orgName" />
+		<result column="org_code" property="orgCode" />
+		<result column="org_desc" property="orgDesc" />
+		<result column="org_level" property="orgLevel" />
+		<result column="org_type" property="orgType" />
+		<result column="sec_order" property="secOrder" />
+		<result column="sec_enabled" property="secEnabled" />
+		<result column="sec_sys_flag" property="secSysFlag" />
+		<result column="sec_readonly_flag" property="secReadonlyFlag" />
+		<result column="sec_delete_flag" property="secDeleteFlag" />
+		<result column="version_" property="version" />
+		<result column="create_date" property="createDate" />
+		<result column="create_time" property="createTime" />
+		<result column="org_or_dep_flag" property="orgOrDepFlag" />
+		<result column="org_level_type" property="orgLevelType" />
+		<result column="org_data_source" property="orgDataSource" />
+		<result column="org_district" property="orgDistrict" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        org_id AS orgId, root_org_id AS rootOrgId, up_org_id AS upOrgId, root_br_org_id AS rootBrOrgId, org_name AS orgName, org_code AS orgCode, org_desc AS orgDesc, org_level AS orgLevel, org_type AS orgType, sec_order AS secOrder, sec_enabled AS secEnabled, sec_sys_flag AS secSysFlag, sec_readonly_flag AS secReadonlyFlag, sec_delete_flag AS secDeleteFlag, version_ AS version, create_date AS createDate, create_time AS createTime, org_or_dep_flag AS orgOrDepFlag, org_level_type AS orgLevelType, org_data_source AS orgDataSource, org_district AS orgDistrict
+    </sql>
+</mapper>

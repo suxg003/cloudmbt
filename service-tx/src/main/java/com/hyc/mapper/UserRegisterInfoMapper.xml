@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.UserRegisterInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.UserRegisterInfo">
+		<id column="user_id" property="userId" />
+		<result column="phone" property="phone" />
+		<result column="pass_word" property="passWord" />
+		<result column="reg_ip" property="regIp" />
+		<result column="reg_address" property="regAddress" />
+		<result column="reg_time" property="regTime" />
+		<result column="first_spread_channel" property="firstSpreadChannel" />
+		<result column="second_spread_channel" property="secondSpreadChannel" />
+		<result column="third_spread_channel" property="thirdSpreadChannel" />
+		<result column="spread_user_id" property="spreadUserId" />
+		<result column="parent_spread_user_id" property="parentSpreadUserId" />
+		<result column="spread_link" property="spreadLink" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        user_id AS userId, phone, pass_word AS passWord, reg_ip AS regIp, reg_address AS regAddress, reg_time AS regTime, first_spread_channel AS firstSpreadChannel, second_spread_channel AS secondSpreadChannel, third_spread_channel AS thirdSpreadChannel, spread_user_id AS spreadUserId, parent_spread_user_id AS parentSpreadUserId, spread_link AS spreadLink
+    </sql>
+</mapper>

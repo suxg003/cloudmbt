@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.SysBizSerialMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.SysBizSerial">
+		<id column="biz_key" property="bizKey" />
+		<result column="biz_name" property="bizName" />
+		<result column="biz_serial_no" property="bizSerialNo" />
+		<result column="biz_prefix" property="bizPrefix" />
+		<result column="biz_date" property="bizDate" />
+		<result column="is_append" property="isAppend" />
+		<result column="serial_num" property="serialNum" />
+		<result column="biz_remark" property="bizRemark" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        biz_key AS bizKey, biz_name AS bizName, biz_serial_no AS bizSerialNo, biz_prefix AS bizPrefix, biz_date AS bizDate, is_append AS isAppend, serial_num AS serialNum, biz_remark AS bizRemark
+    </sql>
+</mapper>

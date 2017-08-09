@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.UserDirectoryMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.UserDirectory">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="user_directory" property="userDirectory" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="resive1" property="resive1" />
+		<result column="resive2" property="resive2" />
+		<result column="resive3" property="resive3" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, user_id AS userId, user_directory AS userDirectory, create_date_time AS createDateTime, update_time AS updateTime, resive1, resive2, resive3
+    </sql>
+</mapper>

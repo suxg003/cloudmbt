@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.StlTransferMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.StlTransfer">
+		<id column="id" property="id" />
+		<result column="req_no" property="reqNo" />
+		<result column="send_mess" property="sendMess" />
+		<result column="retu_mess" property="retuMess" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="retu_code" property="retuCode" />
+		<result column="escr_channels" property="escrChannels" />
+		<result column="sign_mess" property="signMess" />
+		<result column="call_mess" property="callMess" />
+		<result column="noti_mess" property="notiMess" />
+		<result column="tran_type" property="tranType" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, req_no AS reqNo, send_mess AS sendMess, retu_mess AS retuMess, create_date_time AS createDateTime, update_time AS updateTime, retu_code AS retuCode, escr_channels AS escrChannels, sign_mess AS signMess, call_mess AS callMess, noti_mess AS notiMess, tran_type AS tranType
+    </sql>
+</mapper>

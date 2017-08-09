@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.ConfCreditAuditingMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.ConfCreditAuditing">
+		<id column="id" property="id" />
+		<result column="credit_min_score" property="creditMinScore" />
+		<result column="credit_max_score" property="creditMaxScore" />
+		<result column="credit_amount" property="creditAmount" />
+		<result column="approve_type" property="approveType" />
+		<result column="approve_type_way" property="approveTypeWay" />
+		<result column="status" property="status" />
+		<result column="auditing_type" property="auditingType" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="edit_date_time" property="editDateTime" />
+		<result column="operator_name" property="operatorName" />
+		<result column="edit_user_id" property="editUserId" />
+		<result column="take_effect_type" property="takeEffectType" />
+		<result column="take_effect_time" property="takeEffectTime" />
+		<result column="approve_way" property="approveWay" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, credit_min_score AS creditMinScore, credit_max_score AS creditMaxScore, credit_amount AS creditAmount, approve_type AS approveType, approve_type_way AS approveTypeWay, status, auditing_type AS auditingType, create_date_time AS createDateTime, edit_date_time AS editDateTime, operator_name AS operatorName, edit_user_id AS editUserId, take_effect_type AS takeEffectType, take_effect_time AS takeEffectTime, approve_way AS approveWay
+    </sql>
+</mapper>

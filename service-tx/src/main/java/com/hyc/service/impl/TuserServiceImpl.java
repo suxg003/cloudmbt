@@ -1,4 +1,4 @@
-package com.hyc.serviceimpl;
+package com.hyc.service.impl;
 
 import java.util.List;
 

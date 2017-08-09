@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.UserInstallInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.UserInstallInfo">
+		<id column="id" property="id" />
+		<result column="app_type" property="appType" />
+		<result column="app_store" property="appStore" />
+		<result column="app_channel" property="appChannel" />
+		<result column="device_id" property="deviceId" />
+		<result column="app_system" property="appSystem" />
+		<result column="app_version" property="appVersion" />
+		<result column="mobile_type" property="mobileType" />
+		<result column="mobile_resolution" property="mobileResolution" />
+		<result column="install_time" property="installTime" />
+		<result column="ip" property="ip" />
+		<result column="address" property="address" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, app_type AS appType, app_store AS appStore, app_channel AS appChannel, device_id AS deviceId, app_system AS appSystem, app_version AS appVersion, mobile_type AS mobileType, mobile_resolution AS mobileResolution, install_time AS installTime, ip, address
+    </sql>
+</mapper>

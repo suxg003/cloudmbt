@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.UserInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.UserInfo">
+		<id column="user_id" property="userId" />
+		<result column="user_name" property="userName" />
+		<result column="phone" property="phone" />
+		<result column="idcard_no" property="idcardNo" />
+		<result column="real_name_auth" property="realNameAuth" />
+		<result column="id_card_comparison" property="idCardComparison" />
+		<result column="living_portrait_comparison" property="livingPortraitComparison" />
+		<result column="phone_auth" property="phoneAuth" />
+		<result column="zhima_score" property="zhimaScore" />
+		<result column="bank_card_auth" property="bankCardAuth" />
+		<result column="letter_score" property="letterScore" />
+		<result column="sesame_credit" property="sesameCredit" />
+		<result column="member_level" property="memberLevel" />
+		<result column="status" property="status" />
+		<result column="loan_status" property="loanStatus" />
+		<result column="is_credit" property="isCredit" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="approve_status" property="approveStatus" />
+		<result column="resive2" property="resive2" />
+		<result column="resive3" property="resive3" />
+		<result column="birthday" property="birthday" />
+		<result column="fdd_customer_id" property="fddCustomerId" />
+		<result column="email" property="email" />
+		<result column="living_comparison_num" property="livingComparisonNum" />
+		<result column="phone_auth_num" property="phoneAuthNum" />
+		<result column="bank_card_auth_num" property="bankCardAuthNum" />
+		<result column="third_pay_user_id" property="thirdPayUserId" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        user_id AS userId, user_name AS userName, phone, idcard_no AS idcardNo, real_name_auth AS realNameAuth, id_card_comparison AS idCardComparison, living_portrait_comparison AS livingPortraitComparison, phone_auth AS phoneAuth, zhima_score AS zhimaScore, bank_card_auth AS bankCardAuth, letter_score AS letterScore, sesame_credit AS sesameCredit, member_level AS memberLevel, status, loan_status AS loanStatus, is_credit AS isCredit, create_date_time AS createDateTime, update_time AS updateTime, approve_status AS approveStatus, resive2, resive3, birthday, fdd_customer_id AS fddCustomerId, email, living_comparison_num AS livingComparisonNum, phone_auth_num AS phoneAuthNum, bank_card_auth_num AS bankCardAuthNum, third_pay_user_id AS thirdPayUserId
+    </sql>
+</mapper>

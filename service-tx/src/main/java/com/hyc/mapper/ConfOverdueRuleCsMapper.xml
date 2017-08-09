@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.ConfOverdueRuleCsMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.ConfOverdueRuleCs">
+		<id column="id" property="id" />
+		<result column="over_min_day" property="overMinDay" />
+		<result column="over_max_day" property="overMaxDay" />
+		<result column="over_level" property="overLevel" />
+		<result column="penalty_type" property="penaltyType" />
+		<result column="status" property="status" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="edit_date_time" property="editDateTime" />
+		<result column="edit_user_id" property="editUserId" />
+		<result column="last_operator_name" property="lastOperatorName" />
+		<result column="take_effect_type" property="takeEffectType" />
+		<result column="take_effect_time" property="takeEffectTime" />
+		<result column="reserve1" property="reserve1" />
+		<result column="reserve2" property="reserve2" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, over_min_day AS overMinDay, over_max_day AS overMaxDay, over_level AS overLevel, penalty_type AS penaltyType, status, create_date_time AS createDateTime, edit_date_time AS editDateTime, edit_user_id AS editUserId, last_operator_name AS lastOperatorName, take_effect_type AS takeEffectType, take_effect_time AS takeEffectTime, reserve1, reserve2
+    </sql>
+</mapper>

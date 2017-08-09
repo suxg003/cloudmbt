@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.SysSecMenuMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.SysSecMenu">
+		<id column="menu_code" property="menuCode" />
+		<result column="root_menu_code" property="rootMenuCode" />
+		<result column="parent_code" property="parentCode" />
+		<result column="menu_type" property="menuType" />
+		<result column="menu_name" property="menuName" />
+		<result column="menu_level" property="menuLevel" />
+		<result column="resource_code" property="resourceCode" />
+		<result column="menu_url" property="menuUrl" />
+		<result column="sec_order" property="secOrder" />
+		<result column="sec_enabled" property="secEnabled" />
+		<result column="sec_sys_flag" property="secSysFlag" />
+		<result column="sec_readonly_flag" property="secReadonlyFlag" />
+		<result column="create_date" property="createDate" />
+		<result column="create_time" property="createTime" />
+		<result column="version_" property="version" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        menu_code AS menuCode, root_menu_code AS rootMenuCode, parent_code AS parentCode, menu_type AS menuType, menu_name AS menuName, menu_level AS menuLevel, resource_code AS resourceCode, menu_url AS menuUrl, sec_order AS secOrder, sec_enabled AS secEnabled, sec_sys_flag AS secSysFlag, sec_readonly_flag AS secReadonlyFlag, create_date AS createDate, create_time AS createTime, version_ AS version
+    </sql>
+</mapper>

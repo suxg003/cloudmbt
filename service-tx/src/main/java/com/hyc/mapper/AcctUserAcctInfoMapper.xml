@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.AcctUserAcctInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.AcctUserAcctInfo">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="channel_no" property="channelNo" />
+		<result column="loan_amount" property="loanAmount" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="credit_amount" property="creditAmount" />
+		<result column="borrow_amount" property="borrowAmount" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, user_id AS userId, channel_no AS channelNo, loan_amount AS loanAmount, create_date_time AS createDateTime, update_time AS updateTime, credit_amount AS creditAmount, borrow_amount AS borrowAmount
+    </sql>
+</mapper>

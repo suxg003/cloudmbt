@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.UserCardMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.UserCard">
+		<id column="user_card_id" property="userCardId" />
+		<result column="user_id" property="userId" />
+		<result column="account_no" property="accountNo" />
+		<result column="bank_name" property="bankName" />
+		<result column="acc_name" property="accName" />
+		<result column="bank_real_name" property="bankRealName" />
+		<result column="reser_phone" property="reserPhone" />
+		<result column="status" property="status" />
+		<result column="card_type" property="cardType" />
+		<result column="escr_channel" property="escrChannel" />
+		<result column="pay_trade_type" property="payTradeType" />
+		<result column="no_agree" property="noAgree" />
+		<result column="release_date_time" property="releaseDateTime" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="bank_code" property="bankCode" />
+		<result column="resive2" property="resive2" />
+		<result column="resive3" property="resive3" />
+		<result column="card_purpose" property="cardPurpose" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        user_card_id AS userCardId, user_id AS userId, account_no AS accountNo, bank_name AS bankName, acc_name AS accName, bank_real_name AS bankRealName, reser_phone AS reserPhone, status, card_type AS cardType, escr_channel AS escrChannel, pay_trade_type AS payTradeType, no_agree AS noAgree, release_date_time AS releaseDateTime, create_date_time AS createDateTime, update_time AS updateTime, bank_code AS bankCode, resive2, resive3, card_purpose AS cardPurpose
+    </sql>
+</mapper>

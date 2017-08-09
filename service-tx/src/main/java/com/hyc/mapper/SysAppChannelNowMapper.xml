@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.SysAppChannelNowMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.SysAppChannelNow">
+		<id column="id" property="id" />
+		<result column="app_deviceId" property="appDeviceid" />
+		<result column="app_channel" property="appChannel" />
+		<result column="credit_datetime" property="creditDatetime" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, app_deviceId AS appDeviceid, app_channel AS appChannel, credit_datetime AS creditDatetime
+    </sql>
+</mapper>

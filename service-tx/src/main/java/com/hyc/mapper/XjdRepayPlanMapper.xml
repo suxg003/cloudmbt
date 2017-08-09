@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.XjdRepayPlanMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.XjdRepayPlan">
+		<id column="repay_id" property="repayId" />
+		<result column="user_id" property="userId" />
+		<result column="loan_no" property="loanNo" />
+		<result column="periods" property="periods" />
+		<result column="inter_days" property="interDays" />
+		<result column="repay_date" property="repayDate" />
+		<result column="step" property="step" />
+		<result column="status" property="status" />
+		<result column="interest" property="interest" />
+		<result column="repayed_interest" property="repayedInterest" />
+		<result column="amount" property="amount" />
+		<result column="repayed_amount" property="repayedAmount" />
+		<result column="total_amount" property="totalAmount" />
+		<result column="repayed_total_amount" property="repayedTotalAmount" />
+		<result column="over_interest" property="overInterest" />
+		<result column="repayed_over_interest" property="repayedOverInterest" />
+		<result column="repayed_date_time" property="repayedDateTime" />
+		<result column="over_days" property="overDays" />
+		<result column="over_stage" property="overStage" />
+		<result column="over_manage_fee" property="overManageFee" />
+		<result column="over_collect_fee" property="overCollectFee" />
+		<result column="is_have_overdue" property="isHaveOverdue" />
+		<result column="request_no" property="requestNo" />
+		<result column="deal_status" property="dealStatus" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_date_time" property="updateDateTime" />
+		<result column="reserve1" property="reserve1" />
+		<result column="third_pay_status" property="thirdPayStatus" />
+		<result column="extra_interest" property="extraInterest" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        repay_id AS repayId, user_id AS userId, loan_no AS loanNo, periods, inter_days AS interDays, repay_date AS repayDate, step, status, interest, repayed_interest AS repayedInterest, amount, repayed_amount AS repayedAmount, total_amount AS totalAmount, repayed_total_amount AS repayedTotalAmount, over_interest AS overInterest, repayed_over_interest AS repayedOverInterest, repayed_date_time AS repayedDateTime, over_days AS overDays, over_stage AS overStage, over_manage_fee AS overManageFee, over_collect_fee AS overCollectFee, is_have_overdue AS isHaveOverdue, request_no AS requestNo, deal_status AS dealStatus, create_date_time AS createDateTime, update_date_time AS updateDateTime, reserve1, third_pay_status AS thirdPayStatus, extra_interest AS extraInterest
+    </sql>
+</mapper>

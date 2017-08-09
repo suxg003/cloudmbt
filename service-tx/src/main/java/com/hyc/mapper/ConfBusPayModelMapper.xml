@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.ConfBusPayModelMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.ConfBusPayModel">
+		<id column="id" property="id" />
+		<result column="loan_amount" property="loanAmount" />
+		<result column="loan_period" property="loanPeriod" />
+		<result column="manage_fee" property="manageFee" />
+		<result column="search_fee" property="searchFee" />
+		<result column="service_fee" property="serviceFee" />
+		<result column="rate" property="rate" />
+		<result column="interest_way" property="interestWay" />
+		<result column="repay_way" property="repayWay" />
+		<result column="is_prepayment" property="isPrepayment" />
+		<result column="is_effective" property="isEffective" />
+		<result column="is_default" property="isDefault" />
+		<result column="score_min" property="scoreMin" />
+		<result column="score_max" property="scoreMax" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_date_time" property="updateDateTime" />
+		<result column="effective_way" property="effectiveWay" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, loan_amount AS loanAmount, loan_period AS loanPeriod, manage_fee AS manageFee, search_fee AS searchFee, service_fee AS serviceFee, rate, interest_way AS interestWay, repay_way AS repayWay, is_prepayment AS isPrepayment, is_effective AS isEffective, is_default AS isDefault, score_min AS scoreMin, score_max AS scoreMax, create_date_time AS createDateTime, update_date_time AS updateDateTime, effective_way AS effectiveWay
+    </sql>
+</mapper>

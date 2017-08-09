@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.UserLoginInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.UserLoginInfo">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="login_time" property="loginTime" />
+		<result column="login_ip" property="loginIp" />
+		<result column="login_region" property="loginRegion" />
+		<result column="login_address" property="loginAddress" />
+		<result column="device_id" property="deviceId" />
+		<result column="app_store" property="appStore" />
+		<result column="channel_package" property="channelPackage" />
+		<result column="login_site" property="loginSite" />
+		<result column="app_version" property="appVersion" />
+		<result column="app_resolution" property="appResolution" />
+		<result column="app_system" property="appSystem" />
+		<result column="tongdun_device_id" property="tongdunDeviceId" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, user_id AS userId, login_time AS loginTime, login_ip AS loginIp, login_region AS loginRegion, login_address AS loginAddress, device_id AS deviceId, app_store AS appStore, channel_package AS channelPackage, login_site AS loginSite, app_version AS appVersion, app_resolution AS appResolution, app_system AS appSystem, tongdun_device_id AS tongdunDeviceId
+    </sql>
+</mapper>

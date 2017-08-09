@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.XjdLoanOverStageInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.XjdLoanOverStageInfo">
+		<id column="id" property="id" />
+		<result column="loan_no" property="loanNo" />
+		<result column="over_min_day" property="overMinDay" />
+		<result column="over_max_day" property="overMaxDay" />
+		<result column="over_level" property="overLevel" />
+		<result column="penalty_type" property="penaltyType" />
+		<result column="penalty_day" property="penaltyDay" />
+		<result column="over_manage_fee" property="overManageFee" />
+		<result column="over_collect_fee" property="overCollectFee" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_date_time" property="updateDateTime" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, loan_no AS loanNo, over_min_day AS overMinDay, over_max_day AS overMaxDay, over_level AS overLevel, penalty_type AS penaltyType, penalty_day AS penaltyDay, over_manage_fee AS overManageFee, over_collect_fee AS overCollectFee, create_date_time AS createDateTime, update_date_time AS updateDateTime
+    </sql>
+</mapper>

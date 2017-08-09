@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.ConfTriServiceChargeMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.ConfTriServiceCharge">
+		<id column="id" property="id" />
+		<result column="plat_code" property="platCode" />
+		<result column="plat_name" property="platName" />
+		<result column="trans_type" property="transType" />
+		<result column="charge_model" property="chargeModel" />
+		<result column="charge_way" property="chargeWay" />
+		<result column="charge_money" property="chargeMoney" />
+		<result column="effective_time" property="effectiveTime" />
+		<result column="expire_time" property="expireTime" />
+		<result column="valid_time" property="validTime" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_date_time" property="updateDateTime" />
+		<result column="plat_acct_no" property="platAcctNo" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, plat_code AS platCode, plat_name AS platName, trans_type AS transType, charge_model AS chargeModel, charge_way AS chargeWay, charge_money AS chargeMoney, effective_time AS effectiveTime, expire_time AS expireTime, valid_time AS validTime, create_date_time AS createDateTime, update_date_time AS updateDateTime, plat_acct_no AS platAcctNo
+    </sql>
+</mapper>

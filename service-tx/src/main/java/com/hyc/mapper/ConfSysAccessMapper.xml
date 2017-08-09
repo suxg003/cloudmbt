@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.mapper.ConfSysAccessMapper">
+
+	<resultMap id="BaseResultMap" type="com.hyc.model.ConfSysAccess">
+		<id column="id" property="id" />
+		<result column="age_min" property="ageMin" />
+		<result column="age_max" property="ageMax" />
+		<result column="age_flag" property="ageFlag" />
+		<result column="age_weight" property="ageWeight" />
+		<result column="permanent_place" property="permanentPlace" />
+		<result column="edu_level" property="eduLevel" />
+		<result column="edu_flag" property="eduFlag" />
+		<result column="edu_weight" property="eduWeight" />
+		<result column="profession" property="profession" />
+		<result column="profession_flag" property="professionFlag" />
+		<result column="profession_weight" property="professionWeight" />
+		<result column="permanent_place_time" property="permanentPlaceTime" />
+		<result column="permanent_place_time_unit" property="permanentPlaceTimeUnit" />
+		<result column="phone_net_time" property="phoneNetTime" />
+		<result column="phone_net_time_unit" property="phoneNetTimeUnit" />
+		<result column="phone_net_time_flag" property="phoneNetTimeFlag" />
+		<result column="phone_net_time_weight" property="phoneNetTimeWeight" />
+		<result column="bank_card_time" property="bankCardTime" />
+		<result column="bank_card_time_unit" property="bankCardTimeUnit" />
+		<result column="average_month_trans_time" property="averageMonthTransTime" />
+		<result column="is_effective" property="isEffective" />
+		<result column="effective_way" property="effectiveWay" />
+		<result column="last_operator_id" property="lastOperatorId" />
+		<result column="last_operator_name" property="lastOperatorName" />
+		<result column="provice_city" property="proviceCity" />
+		<result column="provice_city_flag" property="proviceCityFlag" />
+		<result column="provice_city_weight" property="proviceCityWeight" />
+		<result column="plan_date_time" property="planDateTime" />
+		<result column="create_date_time" property="createDateTime" />
+		<result column="update_date_time" property="updateDateTime" />
+		<result column="weight_pass" property="weightPass" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id, age_min AS ageMin, age_max AS ageMax, age_flag AS ageFlag, age_weight AS ageWeight, permanent_place AS permanentPlace, edu_level AS eduLevel, edu_flag AS eduFlag, edu_weight AS eduWeight, profession, profession_flag AS professionFlag, profession_weight AS professionWeight, permanent_place_time AS permanentPlaceTime, permanent_place_time_unit AS permanentPlaceTimeUnit, phone_net_time AS phoneNetTime, phone_net_time_unit AS phoneNetTimeUnit, phone_net_time_flag AS phoneNetTimeFlag, phone_net_time_weight AS phoneNetTimeWeight, bank_card_time AS bankCardTime, bank_card_time_unit AS bankCardTimeUnit, average_month_trans_time AS averageMonthTransTime, is_effective AS isEffective, effective_way AS effectiveWay, last_operator_id AS lastOperatorId, last_operator_name AS lastOperatorName, provice_city AS proviceCity, provice_city_flag AS proviceCityFlag, provice_city_weight AS proviceCityWeight, plan_date_time AS planDateTime, create_date_time AS createDateTime, update_date_time AS updateDateTime, weight_pass AS weightPass
+    </sql>
+</mapper>
