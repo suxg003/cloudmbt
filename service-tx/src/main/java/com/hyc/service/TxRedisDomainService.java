@@ -5,6 +5,7 @@ import java.io.Serializable;
 
  
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -45,7 +46,7 @@ public class TxRedisDomainService  {
 		}else if("write".equalsIgnoreCase(action)) {
 			String key = (String)appMap.getIn().get(_cache_redis_key_);
 			String data = (String)appMap.getIn().get(_cache_redis_data_);
-			long time = Long.valueOf((Integer)appMap.getIn().get(_cache_redis_time_));
+			long time = Long.valueOf((String) appMap.getIn().get(_cache_redis_time_));
 			wirteCacheData(key,data,time);
 		} else if("delete".equalsIgnoreCase(action)) {
 			String key = (String)appMap.getIn().get(_cache_redis_key_);

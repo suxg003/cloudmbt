@@ -1,6 +1,6 @@
 server:
   port: 8761
-
+#eureka.client.healthcheck.enabled = true
 eureka:
   instance:
     hostname: localhost

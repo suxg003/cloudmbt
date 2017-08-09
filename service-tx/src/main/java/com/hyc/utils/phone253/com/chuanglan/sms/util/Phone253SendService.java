@@ -42,6 +42,8 @@ public class Phone253SendService {
 	@Value("${sms_message}")
 	public String sms_message;
 
+	@Autowired
+	private TxRedisDomainService txRedisDomainService;
 	/**
 	 * 253d短信发送工具
 	 * 
