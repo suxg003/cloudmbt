@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,9 +58,11 @@ public class UserRegisterInfoController {
 	 */
 	@RequestMapping("/regis")
 	public void doLocalService(HttpServletRequest request, String phone,
-			String code, String pass_word) {
+			String code, String pass_word, String channel_no,
+			String first_spread_channel, String second_spread_channel,
+			String third_spread_channel, String spread_user_id,String parent_spread_user_id,
+			String spread_link) {
 
-		// HttpServletRequest request = AppMapHandler.getRequest(appMap);
 		String ip = request.getHeader("X-Forwarded-For");
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("Proxy-Client-IP");
@@ -71,16 +74,7 @@ public class UserRegisterInfoController {
 			ip = request.getRemoteAddr();
 		}
 		ip = ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : ip;
-		/*
-		 * AppMap.getIn().put("ip", ip);
-		 * 
-		 * this.localServiceTools.callService(appMap, "tx", "100100");
-		 * if(appMap.getStatusData().isResultStatus()){
-		 * apiv10appcommonloginLocalService.doLocalService(appMap); }
-		 */
-
 		// 手机号
-
 		if (phone != null && !"".equals(phone)) {
 			// 后台验证手机号是否存在
 			// 对手机号进行查询
@@ -156,13 +150,6 @@ public class UserRegisterInfoController {
 		}
 		long ipL = ipToLong(ip);
 
-		Map<String, Object> sqlMap = new HashMap<String, Object>();
-		// sqlMap.put("ip", ipL);
-		// Map<String, Object> ipMap =
-		// mapSimpleDao.getMapByMap("tx_100101_user_login.tx_conf_ip", sqlMap);
-
-		// ConfIpInformation ipMap =confIpInformationServiceImpl.selectOne(new
-		// EntityWrapper<ConfIpInformation>().eq("ip", ipL) );
 		String ipMap = (String) confIpInformationServiceImpl
 				.selectObj(new EntityWrapper<ConfIpInformation>().eq("ip", ipL));
 		UserRegisterInfo userRegisterInfo = new UserRegisterInfo();
@@ -171,41 +158,16 @@ public class UserRegisterInfoController {
 		userRegisterInfo.setPassWord(tPwd);// 密码
 		userRegisterInfo.setRegTime(new Date());// 注册时间
 
-		/*
-		 * insertMap.put(UserRegisterInfoConst.FIRST_SPREAD_CHANNEL,
-		 * params.get("first_spread_channel")==null ||
-		 * "".equals(params.get("first_spread_channel")) ?
-		 * "":params.get("first_spread_channel"));//推广渠道
-		 * insertMap.put(UserRegisterInfoConst.SECOND_SPREAD_CHANNEL,
-		 * params.get("second_spread_channel")==null ||
-		 * "".equals(params.get("second_spread_channel")) ?
-		 * "":params.get("second_spread_channel"));//二级推广渠道
-		 * insertMap.put(UserRegisterInfoConst.THIRD_SPREAD_CHANNEL,
-		 * params.get("third_spread_channel")==null ||
-		 * "".equals(params.get("third_spread_channel")) ?
-		 * "":params.get("third_spread_channel"));//三级推广渠道
-		 * insertMap.put(UserRegisterInfoConst.SPREAD_USER_ID,
-		 * params.get("spread_user_id")==null ||
-		 * "".equals(params.get("spread_user_id")) ?
-		 * "":params.get("spread_user_id"));//直属推广员id
-		 * insertMap.put(UserRegisterInfoConst.PARENT_SPREAD_USER_ID,
-		 * params.get("parent_spread_user_id")==null ||
-		 * "".equals(params.get("parent_spread_user_id")) ?
-		 * "":params.get("parent_spread_user_id"));//祖系推广员id
-		 * insertMap.put(UserRegisterInfoConst.SPREAD_LINK,
-		 * params.get("spread_link")==null ||
-		 * "".equals(params.get("spread_link")) ?
-		 * "":params.get("spread_link"));//专属链接
-		 */
-
+	
+		userRegisterInfo.setFirstSpreadChannel(StringUtils.defaultString(first_spread_channel));//推广渠道
+		userRegisterInfo.setSecondSpreadChannel(StringUtils.defaultString(second_spread_channel));//二级推广渠道
+		userRegisterInfo.setThirdSpreadChannel(StringUtils.defaultString(third_spread_channel));//三级推广渠道
+		userRegisterInfo.setSpreadUserId(StringUtils.defaultString(spread_user_id));//直属推广员id
+		userRegisterInfo.setParentSpreadUserId(StringUtils.defaultString(parent_spread_user_id));//祖系推广员id
+		userRegisterInfo.setSpreadLink(StringUtils.defaultString(spread_link));
 		// 插入用户注册信息记录表
-
-		// int userId = (Integer)
-		// mapDao.insert(UserRegisterInfoConst.SQL_MAP_NS, insertMap);
-
 		if (userRegisterInfoServiceImpl.insert(userRegisterInfo)) {
 			UserInfo userInfo = new UserInfo();
-			// userInfoMap.put(UserInfoConst.USER_ID, userId);//用户id
 			userInfo.setUserId(userRegisterInfo.getUserId());// 用户id
 			userInfo.setPhone(phone);
 			userInfo.setStatus("01");
@@ -220,19 +182,11 @@ public class UserRegisterInfoController {
 		// appMap.getIn().put("phone",phone);
 		// appMap.getIn().put("pass_word",params.get("pass_word"));
 		//
-		// // 注册成功开账户
-		// AppMap acctMap = new AppMap();
-		// Map<String, Object> acctInfoMap = new HashMap<String, Object>();
-		// acctInfoMap.put("user_id", userId);
-		// acctInfoMap.put("channel_no", "1");
-		// acctMap.setIn(acctInfoMap);
-
-		// tx105101DomainService.doService(acctMap);
 
 		Date currentTime = new Date();
 		AcctUserAcctInfo record = new AcctUserAcctInfo();
-
-		// record.setUserId("user_id");
+		// // 注册成功开账户
+		record.setUserId(userRegisterInfo.getUserId());
 		record.setChannelNo("channel_no");
 		record.setCreditAmount(new BigDecimal(0));
 		record.setLoanAmount(new BigDecimal(0));
