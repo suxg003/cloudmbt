@@ -23,7 +23,7 @@ public class UserAuthRecord implements Serializable {
 	/**
 	 * 用户认证记录id
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="u_a_r_id")
 	private Integer uARId;
 

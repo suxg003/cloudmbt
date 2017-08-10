@@ -25,7 +25,7 @@ public class XjdLoanApplicationInfo implements Serializable {
 	/**
 	 * 借款编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="loan_no")
 	private Integer loanNo;
 

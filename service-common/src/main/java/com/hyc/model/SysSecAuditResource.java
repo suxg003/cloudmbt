@@ -22,7 +22,7 @@ public class SysSecAuditResource implements Serializable {
 	/**
 	 * 功能id或url
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="resource_id")
 	private String resourceId;
 

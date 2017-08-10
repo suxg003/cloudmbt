@@ -23,7 +23,7 @@ public class AcctReqFlow implements Serializable {
 	/**
 	 * 表id
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

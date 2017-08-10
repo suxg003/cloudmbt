@@ -24,7 +24,7 @@ public class SysSecRole implements Serializable {
 	/**
 	 * 
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="role_id")
 	private String roleId;
 

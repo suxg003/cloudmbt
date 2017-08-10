@@ -25,7 +25,7 @@ public class ConfOverdueRule implements Serializable {
 	/**
 	 * 逾期规则编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

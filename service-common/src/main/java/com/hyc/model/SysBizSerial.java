@@ -24,7 +24,7 @@ public class SysBizSerial implements Serializable {
 	/**
 	 * 业务号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="biz_key")
 	private String bizKey;
 

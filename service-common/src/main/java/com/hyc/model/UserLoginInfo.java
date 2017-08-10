@@ -23,7 +23,7 @@ public class UserLoginInfo implements Serializable {
 	/**
 	 * id
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

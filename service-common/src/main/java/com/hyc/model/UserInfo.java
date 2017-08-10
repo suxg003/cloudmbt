@@ -23,7 +23,7 @@ public class UserInfo implements Serializable {
 	/**
 	 * 用户ID
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="user_id")
 	private Integer userId;
 

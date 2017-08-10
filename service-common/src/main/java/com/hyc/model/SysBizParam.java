@@ -22,7 +22,7 @@ public class SysBizParam implements Serializable {
 	/**
 	 * 参数编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="param_id")
 	private String paramId;
 

@@ -25,7 +25,7 @@ public class ConfTriServiceCharge implements Serializable {
 	/**
 	 * 主键id
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

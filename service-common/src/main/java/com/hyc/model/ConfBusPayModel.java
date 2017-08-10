@@ -25,7 +25,7 @@ public class ConfBusPayModel implements Serializable {
 	/**
 	 * 业务编号（主键）
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

@@ -25,7 +25,7 @@ public class XjdRepayPlan implements Serializable {
 	/**
 	 * 还款记录编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="repay_id")
 	private Integer repayId;
 

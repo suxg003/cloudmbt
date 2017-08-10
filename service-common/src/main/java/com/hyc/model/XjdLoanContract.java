@@ -23,7 +23,7 @@ public class XjdLoanContract implements Serializable {
 	/**
 	 * 借款合同id
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

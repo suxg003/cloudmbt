@@ -22,7 +22,7 @@ public class PubDireTbl implements Serializable {
 	/**
 	 * 主键
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

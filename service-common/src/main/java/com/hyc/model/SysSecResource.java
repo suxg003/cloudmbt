@@ -24,7 +24,7 @@ public class SysSecResource implements Serializable {
 	/**
 	 * 功能编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="resource_id")
 	private String resourceId;
 

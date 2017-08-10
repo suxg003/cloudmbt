@@ -23,7 +23,7 @@ public class ConfScoreCard implements Serializable {
 	/**
 	 * 评分卡规则编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

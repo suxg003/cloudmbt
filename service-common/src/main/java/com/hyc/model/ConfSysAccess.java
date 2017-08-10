@@ -23,7 +23,7 @@ public class ConfSysAccess implements Serializable {
 	/**
 	 * 规则编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

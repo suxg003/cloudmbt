@@ -22,7 +22,7 @@ public class UserInstallInfo implements Serializable {
 	/**
 	 * 
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private String id;
 
 	/**

@@ -24,7 +24,7 @@ public class SysSecMenu implements Serializable {
 	/**
 	 * 菜单编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="menu_code")
 	private String menuCode;
 

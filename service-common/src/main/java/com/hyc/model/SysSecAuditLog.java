@@ -22,7 +22,7 @@ public class SysSecAuditLog implements Serializable {
 	/**
 	 * 日志编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="audit_log_id")
 	private String auditLogId;
 

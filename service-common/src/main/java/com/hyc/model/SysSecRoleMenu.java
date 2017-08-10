@@ -22,7 +22,7 @@ public class SysSecRoleMenu implements Serializable {
 	/**
 	 * 角色编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="role_id")
 	private String roleId;
 

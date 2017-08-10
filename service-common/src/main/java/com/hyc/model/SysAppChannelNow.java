@@ -23,7 +23,7 @@ public class SysAppChannelNow implements Serializable {
 	/**
 	 * 
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

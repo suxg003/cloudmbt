@@ -23,7 +23,7 @@ public class XjdLenderInfo implements Serializable {
 	/**
 	 * 出借人信息ID
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="lender_id")
 	private Integer lenderId;
 

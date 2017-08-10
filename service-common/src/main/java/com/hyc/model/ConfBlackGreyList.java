@@ -23,7 +23,7 @@ public class ConfBlackGreyList implements Serializable {
 	/**
 	 * 黑灰名单id
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

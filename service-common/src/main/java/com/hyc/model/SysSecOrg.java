@@ -24,7 +24,7 @@ public class SysSecOrg implements Serializable {
 	/**
 	 * 机构编码
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="org_id")
 	private String orgId;
 

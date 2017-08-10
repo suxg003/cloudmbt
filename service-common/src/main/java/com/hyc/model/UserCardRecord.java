@@ -23,7 +23,7 @@ public class UserCardRecord implements Serializable {
 	/**
 	 * 用户银行卡记录ID
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="u_c_r_id")
 	private Integer uCRId;
 

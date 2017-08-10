@@ -23,7 +23,7 @@ public class SendMessage implements Serializable {
 	/**
 	 * 推送消息ID
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	private Integer id;
 
 	/**

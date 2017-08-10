@@ -23,7 +23,7 @@ public class CollectionOrgManage implements Serializable {
 	/**
 	 * 催收机构编号
 	 */
-	@TableId(type = IdType.UUID)
+	@TableId(type = IdType.AUTO)
 	@TableField(value="organization_number")
 	private Integer organizationNumber;
 
