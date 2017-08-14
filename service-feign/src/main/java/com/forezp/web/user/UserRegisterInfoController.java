@@ -41,7 +41,6 @@ public class UserRegisterInfoController {
 			String first_spread_channel, String second_spread_channel,
 			String third_spread_channel, String spread_user_id,
 			String parent_spread_user_id, String spread_link) {
-		Map map = new HashMap();
 		String ip = request.getHeader("X-Forwarded-For");
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("Proxy-Client-IP");
@@ -53,21 +52,14 @@ public class UserRegisterInfoController {
 			ip = request.getRemoteAddr();
 		}
 		ip = ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : ip;
-		try {
-			userRegisterService.doLocalService(ip, phone, code, pass_word,
+		Map map=userRegisterService.doLocalService(ip, phone, code, pass_word,
 					channel_no, first_spread_channel, second_spread_channel,
 					third_spread_channel, spread_user_id,
 					parent_spread_user_id, spread_link);
-			map.put("code", "100000");
+		/*	map.put("code", "100000");
 			map.put("message", "登录成功");
-			map.put("loginUser", UserInfo);
-		} catch (AppException e) {
-			// TODO: handle exception
-			// TODO
-			e.getErrorCode();
-			map.put("code", e.getErrorCode());
-			map.put("message", e.getMessage());
-		}
+			map.put("loginUser", UserInfo);*/
+ 
 		String jsonString = JSON.toJSONString(map);
 		Map _post_data_map = new HashMap();
 		_post_data_map.put("_post_data_", Base64.encode(jsonString.getBytes()));

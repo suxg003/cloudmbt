@@ -1,5 +1,7 @@
 package com.forezp.service;
 
+import java.util.Map;
+
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +25,7 @@ public interface UserRegisterService {
 	 * @return
 	 */
 	@RequestMapping(value = "/userregisterinfo/regis", method = RequestMethod.GET)
-	public String doLocalService(
+	public Map doLocalService(
 			@RequestParam("ip") String ip,
 			@RequestParam("phone") String phone,
 			@RequestParam("code") String code,
