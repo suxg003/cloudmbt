@@ -4,9 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.spi.LoggerFactory;
 import org.slf4j.Logger;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

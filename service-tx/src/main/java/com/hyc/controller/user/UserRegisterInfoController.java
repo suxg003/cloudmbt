@@ -6,11 +6,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.hyc.exception.AppException;
 import com.hyc.exception.ExceptionConstant;
-import com.hyc.mapper.UserInfoMapper;
 import com.hyc.model.AcctUserAcctInfo;
-import com.hyc.model.ConfIpInformation;
 import com.hyc.model.UserInfo;
 import com.hyc.model.UserRegisterInfo;
+import com.hyc.rep.UserLoginInfoConst;
 import com.hyc.service.TxRedisDomainService;
 import com.hyc.service.impl.AcctUserAcctInfoServiceImpl;
 import com.hyc.service.impl.ConfIpInformationServiceImpl;
@@ -40,6 +38,7 @@ import com.hyc.utils.SecurityUtil;
  */
 @RestController
 public class UserRegisterInfoController {
+	Logger log = org.slf4j.LoggerFactory.getLogger(UserRegisterInfoController.class);
 
 	@Autowired
 	private UserRegisterInfoServiceImpl userRegisterInfoServiceImpl;
@@ -59,12 +58,12 @@ public class UserRegisterInfoController {
 	 */
 	@RequestMapping("/userregisterinfo/regis")
 	@Transactional
-	public Map doLocalService(String ip, String phone, String code,
+	public Map<String,Object> doLocalService(String ip, String phone, String code,
 			String pass_word, String channel_no, String first_spread_channel,
 			String second_spread_channel, String third_spread_channel,
 			String spread_user_id, String parent_spread_user_id,
 			String spread_link) {
-		Map map = new HashMap();
+		Map<String,Object> map = new HashMap<String,Object> ();
 		try {
 			// 手机号
 			if (phone != null && !"".equals(phone)) {
@@ -72,7 +71,6 @@ public class UserRegisterInfoController {
 				// 对手机号进行查询
 				Map<String, Object> sqlParamsMap = new HashMap<String, Object>();
 				sqlParamsMap.put("phone", phone);
-				Map<String, Object> userMap = new HashMap<String, Object>();
 				UserRegisterInfo userRegisterInfo = userRegisterInfoServiceImpl
 						.selectOne(new EntityWrapper<UserRegisterInfo>().eq(
 								"phone", phone));
@@ -148,6 +146,7 @@ public class UserRegisterInfoController {
 			String ipMap = confIpInformationServiceImpl.queryIpss(String
 					.valueOf(ipL));
 			UserRegisterInfo userRegisterInfo = new UserRegisterInfo();
+			userRegisterInfo.setPhone(phone);
 			userRegisterInfo.setRegIp(ip);// 注册ip
 			userRegisterInfo.setRegAddress(ipMap);// 注册所在地
 			userRegisterInfo.setPassWord(tPwd);// 密码
@@ -168,6 +167,7 @@ public class UserRegisterInfoController {
 			// 插入用户注册信息记录表
 			if (userRegisterInfoServiceImpl.insert(userRegisterInfo)) {
 				UserInfo userInfo = new UserInfo();
+			log.info("插入用户注册信息记录表&&&&&&&&&&&&&&userRegisterInfo.getUserId()="+userRegisterInfo.getUserId());
 				userInfo.setUserId(userRegisterInfo.getUserId());// 用户id
 				userInfo.setPhone(phone);
 				userInfo.setStatus("01");
@@ -187,6 +187,7 @@ public class UserRegisterInfoController {
 			AcctUserAcctInfo record = new AcctUserAcctInfo();
 			// // 注册成功开账户
 			record.setUserId(userRegisterInfo.getUserId());
+			log.info("插入注册成功开账户&&&&&&&&&&&&&&userRegisterInfo.getUserId()="+userRegisterInfo.getUserId());
 			record.setChannelNo("channel_no");
 			record.setCreditAmount(new BigDecimal(0));
 			record.setLoanAmount(new BigDecimal(0));
@@ -196,7 +197,23 @@ public class UserRegisterInfoController {
 			acctUserAcctInfoServiceImpl.insert(record);
 			map.put("code", "100000");
 			map.put("message", "注册成功");
-
+			 HashMap<String, Object>insertMap = new HashMap<String, Object>();
+			 
+				insertMap.put(UserLoginInfoConst.USER_ID, userRegisterInfo.getUserId());
+				insertMap.put(UserLoginInfoConst.LOGIN_TIME, new Date());
+				insertMap.put(UserLoginInfoConst.LOGIN_IP, ip);
+				insertMap.put(UserLoginInfoConst.LOGIN_REGION, ipL);
+				insertMap.put(UserLoginInfoConst.LOGIN_ADDRESS, ipMap);
+				insertMap.put(UserLoginInfoConst.DEVICE_ID,  "device_id");
+				insertMap.put(UserLoginInfoConst.APP_STORE, "app_store");
+				insertMap.put(UserLoginInfoConst.CHANNEL_PACKAGE, "channel_package");
+				insertMap.put(UserLoginInfoConst.LOGIN_SITE, "login_site");
+				insertMap.put(UserLoginInfoConst.APP_VERSION, "ver");
+				insertMap.put(UserLoginInfoConst.APP_RESOLUTION, "app_resolution");
+				insertMap.put(UserLoginInfoConst.APP_SYSTEM, "os");
+				insertMap.put(UserLoginInfoConst.TONGDUN_DEVICE_ID, "blackBox");
+			
+				map.put("loginUser", insertMap);
 		} catch (AppException e) {
 			map.put("code", e.getErrorCode());
 			map.put("message", e.getMessage());
