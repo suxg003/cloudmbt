@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -57,23 +58,12 @@ public class UserRegisterInfoController {
 	 * @param request
 	 */
 	@RequestMapping("/regis")
-	public void doLocalService(HttpServletRequest request, String phone,
+	@Transactional
+	public void doLocalService(String ip, String phone,
 			String code, String pass_word, String channel_no,
 			String first_spread_channel, String second_spread_channel,
 			String third_spread_channel, String spread_user_id,String parent_spread_user_id,
 			String spread_link) {
-
-		String ip = request.getHeader("X-Forwarded-For");
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("WL-Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getRemoteAddr();
-		}
-		ip = ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : ip;
 		// 手机号
 		if (phone != null && !"".equals(phone)) {
 			// 后台验证手机号是否存在
@@ -137,7 +127,6 @@ public class UserRegisterInfoController {
 				tPwd = SecurityUtil.hashWithBase64Encoded("md5",
 						pass_word.getBytes("UTF-8"));
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
@@ -150,8 +139,7 @@ public class UserRegisterInfoController {
 		}
 		long ipL = ipToLong(ip);
 
-		String ipMap = (String) confIpInformationServiceImpl
-				.selectObj(new EntityWrapper<ConfIpInformation>().eq("ip", ipL));
+		String ipMap = confIpInformationServiceImpl.queryIpss(String.valueOf(ipL));
 		UserRegisterInfo userRegisterInfo = new UserRegisterInfo();
 		userRegisterInfo.setRegIp(ip);// 注册ip
 		userRegisterInfo.setRegAddress(ipMap);// 注册所在地
@@ -194,7 +182,7 @@ public class UserRegisterInfoController {
 		record.setCreateDateTime(currentTime);
 		record.setUpdateTime(currentTime);
 		acctUserAcctInfoServiceImpl.insert(record);
-
+		
 	}
 
 	// ip转换方法

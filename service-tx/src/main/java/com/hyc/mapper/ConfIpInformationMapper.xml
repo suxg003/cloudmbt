@@ -15,4 +15,13 @@
     <sql id="Base_Column_List">
         id, ip_begin AS ipBegin, ip_end AS ipEnd, ip_name AS ipName, ip_begin_num AS ipBeginNum, ip_end_num AS ipEndNum
     </sql>
+    
+    
+    <select id="queryIpss"  resultType="string">
+		select ip_name from conf_ip_information where 
+				<![CDATA[(ip_end_num>=#{ip})]]>
+				and
+				<![CDATA[(ip_begin_num<=#{ip})]]>
+				LIMIT 1
+    </select>
 </mapper>

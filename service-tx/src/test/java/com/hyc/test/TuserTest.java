@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.hyc.ServiceDemoApplication;
 import com.hyc.model.Tuser;
 import com.hyc.service.TuserService;
+import com.hyc.service.impl.ConfIpInformationServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = ServiceDemoApplication.class)
@@ -36,6 +37,16 @@ public class TuserTest {
 		for (Tuser tuser : list)
 			System.out.println(tuser.getUsername() + "--------"
 					+ tuser.getUserid());
+	}
+
+	@Autowired
+	ConfIpInformationServiceImpl confIpInformationServiceImpl;
+
+	@Test
+	public void ConfIpInformationServiceImplTest() {
+		String ss = confIpInformationServiceImpl.queryIpss("1.4.0.0");
+
+		System.out.println("###########" + ss);
 	}
 
 }

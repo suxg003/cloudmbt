@@ -1,7 +1,6 @@
 package com.hyc.test;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -11,9 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.hyc.ServiceDemoApplication;
-import com.hyc.controller.TuserController;
-import com.hyc.model.AcctUserAcctInfo;
 import com.hyc.model.UserRegisterInfo;
 import com.hyc.service.impl.AcctUserAcctInfoServiceImpl;
 import com.hyc.service.impl.UserRegisterInfoServiceImpl;
@@ -54,7 +52,14 @@ public class AcctUserAcctInfoServiceTest {
 		userRegisterInfoServiceImpl.insert(userRegisterInfo);
 		log.info("@@@@@@@@@@@" + userRegisterInfo.getUserId());*/
 		String s="123";
-		log.info("@@@@@@@"+StringUtils.defaultString(s));
+//		log.info("@@@@@@@"+StringUtils.defaultString(s));
+	}
+	
+	@Test
+	public void queryregister(){
+		List<UserRegisterInfo> list=	userRegisterInfoServiceImpl.selectList(new EntityWrapper<UserRegisterInfo>().eq("reg_ip","123.12"));
+	log.info("%%%%%%%%%%"+list.size());
+	log.info("%%%%%%%"+list.get(0).getUserId());
 	}
 
 }

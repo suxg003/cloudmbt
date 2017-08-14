@@ -12,5 +12,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @since 2017-08-02
  */
 public interface ConfIpInformationMapper extends BaseMapper<ConfIpInformation> {
-
+	/**
+	 * 自定义查询ip
+	 * @param ip
+	 * @return
+	 */
+	public String queryIpss(String ip);
 }

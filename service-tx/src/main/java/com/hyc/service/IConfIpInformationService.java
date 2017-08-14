@@ -13,4 +13,10 @@ import com.hyc.model.ConfIpInformation;
  */
 public interface IConfIpInformationService extends IService<ConfIpInformation> {
 	
+	/**
+	 * 自定义查询ip
+	 * @param ip
+	 * @return
+	 */
+	public String queryIpss(String ip);
 }

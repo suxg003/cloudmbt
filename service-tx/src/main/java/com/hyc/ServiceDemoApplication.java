@@ -2,21 +2,15 @@ package com.hyc;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.hyc.model.Tuser;
 import com.hyc.service.TuserService;
-import com.hyc.utils.BaseResp;
-import com.hyc.utils.ResultStatus;
 
 /**
  * 生产者，可以理解为当前系统中的tx，内提供服务
