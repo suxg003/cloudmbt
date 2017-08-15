@@ -1,9 +1,10 @@
 package com.forezp.service;
 
 import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 
 
-
+@Component
 public class PhoneSendMessageServiceImp implements PhoneSendMessageService {
 	Logger log = org.slf4j.LoggerFactory.getLogger(PhoneSendMessageServiceImp.class);
 	@Override

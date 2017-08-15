@@ -1,8 +1,9 @@
 package com.forezp.service;
 
 import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class RedisClinetHystric implements RedisClinetService{
 	Logger log = org.slf4j.LoggerFactory.getLogger(RedisClinetHystric.class);
 	@Override
