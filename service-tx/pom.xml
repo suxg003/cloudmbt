@@ -93,12 +93,19 @@
 			<artifactId>mybatis-plus</artifactId>
 			<version>${mybatisplus.version}</version>
 		</dependency>
-		
-	<dependency>
-    <groupId>com.alibaba</groupId>
-    <artifactId>fastjson</artifactId>
-    <version>1.2.7</version>
-</dependency>  
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.7</version>
+		</dependency>
+
+			<!-- 加入服务链追踪 -->
+		     <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
+
 	</dependencies>
 
 	<dependencyManagement>

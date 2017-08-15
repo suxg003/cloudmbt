@@ -51,12 +51,12 @@ public class MessageTest {
 	@Value("${sms_message}")
 	private String sms_message;
 
-	@Test
-	public void sendPhoneMessageTest() {
+//	@Test
+	/*public void sendPhoneMessageTest() {
 
-		/**
+		*//**
 		 * 发短信
-		 */
+		 *//*
 			String type = "ver"; // 短信类型ver:验证类 nt:通知类 mt:营销类
 			String account =ver_account; // 发送短信的账号(非登录账号) (示例:N987654)
 			String pwd =ver_pdw; // 发送短信的密码(非登录密码)
@@ -84,6 +84,6 @@ public class MessageTest {
 			} else {
 				log.info("");
 			}
-		}
+		}*/
 	}
 
