@@ -85,7 +85,7 @@ public class UserRegisterInfoController {
 						"手机号不能为空");
 			}
 
-			// 用书输入验证码是否为空
+			/*// 用书输入验证码是否为空
 			if (code != null && !"".equals(code)) {
 				// 验证手机验证码是否失效
 				// 取出redis缓存中存的验证码
@@ -120,7 +120,7 @@ public class UserRegisterInfoController {
 				// 验证码不能为空
 				throw new AppException(ExceptionConstant.TX_CODE_100004,
 						"手机验证码不能为空");
-			}
+			}*/
 
 			// 密码加密
 			String tPwd = null;

@@ -37,7 +37,7 @@ public class PhoneTest {
 		s[0] = "1111";
 		String jkphoneMessage = MessageFormat.format(regist_user, s);
 		log.info("@@@@@@@@@@@@"+jkphoneMessage );
-		String flag =phone253SendService.sendMessage("ver", "18911798523",jkphoneMessage);
-		log.info("hen hao hen hao  hen hao a " + flag);
+		/*String flag =phone253SendService.sendMessage("ver", "18911798523",jkphoneMessage);
+		log.info("hen hao hen hao  hen hao a " + flag);*/
 	}
 }

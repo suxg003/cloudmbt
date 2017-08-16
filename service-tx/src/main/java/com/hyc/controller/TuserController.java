@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ import com.hyc.utils.ResultStatus;
 @RestController
 public class TuserController {
 	@Resource
+
 	private TuserService tuserService;
 	Logger log = org.slf4j.LoggerFactory.getLogger(TuserController.class);
 

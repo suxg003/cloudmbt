@@ -32,12 +32,12 @@ public class UserRegisterInfoController {
 	@Autowired
 	UserRegisterService userRegisterService;
 
-	@RequestMapping("/userregisterinfo")
+	@RequestMapping("/api/v1.0/app/common/regist.do")
 	public Map doLocalService(HttpServletRequest request,
-			@RequestParam("phone") String phone,
-			@RequestParam("code") String code,
-			@RequestParam("pass_word") String pass_word,
-			@RequestParam("channel_no") String channel_no,
+			  String phone,
+			  String code,
+			  String pass_word,
+			  String channel_no,
 			String first_spread_channel, String second_spread_channel,
 			String third_spread_channel, String spread_user_id,
 			String parent_spread_user_id, String spread_link) {
