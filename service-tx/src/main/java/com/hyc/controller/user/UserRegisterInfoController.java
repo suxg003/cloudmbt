@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import com.hyc.service.impl.AcctUserAcctInfoServiceImpl;
 import com.hyc.service.impl.ConfIpInformationServiceImpl;
 import com.hyc.service.impl.UserInfoServiceImpl;
 import com.hyc.service.impl.UserRegisterInfoServiceImpl;
+import com.hyc.utils.AddressUtils;
 import com.hyc.utils.AppMap;
 import com.hyc.utils.Base64;
 import com.hyc.utils.SecurityUtil;
@@ -71,7 +73,7 @@ public class UserRegisterInfoController {
 				// 对手机号进行查询
 				Map<String, Object> sqlParamsMap = new HashMap<String, Object>();
 				sqlParamsMap.put("phone", phone);
-				UserRegisterInfo userRegisterInfo = userRegisterInfoServiceImpl
+			 	UserRegisterInfo userRegisterInfo = userRegisterInfoServiceImpl
 						.selectOne(new EntityWrapper<UserRegisterInfo>().eq(
 								"phone", phone));
 				if (userRegisterInfo != null) {
@@ -138,17 +140,31 @@ public class UserRegisterInfoController {
 						"密码不能为空");
 			}
 
-			if (ip != null && !("".equals(ip)) && ip.contains(",")) {
+/*			if (ip != null && !("".equals(ip)) && ip.contains(",")) {
 				ip = ip.split(",")[0].trim();
 			}
 			long ipL = ipToLong(ip);
-
-			String ipMap = confIpInformationServiceImpl.queryIpss(String
-					.valueOf(ipL));
+			
+		 	String ipMap = confIpInformationServiceImpl.queryIpss(String
+					.valueOf(ipL)); */
+			/**
+			 * 远程调用淘宝获取地址
+			 */
+			String	address="";
+			try {
+				address = AddressUtils.getAddresses("ip=" + ip, "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				log.error("########淘宝远程或者所在地接口异常");
+			}
+		 	
+		 	
+//			String ipMap="12323";
 			UserRegisterInfo userRegisterInfo = new UserRegisterInfo();
 			userRegisterInfo.setPhone(phone);
 			userRegisterInfo.setRegIp(ip);// 注册ip
-			userRegisterInfo.setRegAddress(ipMap);// 注册所在地
+			userRegisterInfo.setRegAddress(address);// 注册所在地
 			userRegisterInfo.setPassWord(tPwd);// 密码
 			userRegisterInfo.setRegTime(new Date());// 注册时间
 
@@ -167,7 +183,7 @@ public class UserRegisterInfoController {
 			// 插入用户注册信息记录表
 			if (userRegisterInfoServiceImpl.insert(userRegisterInfo)) {
 				UserInfo userInfo = new UserInfo();
-			log.info("插入用户注册信息记录表&&&&&&&&&&&&&&userRegisterInfo.getUserId()="+userRegisterInfo.getUserId());
+//			log.info("插入用户注册信息记录表&&&&&&&&&&&&&&userRegisterInfo.getUserId()="+userRegisterInfo.getUserId());
 				userInfo.setUserId(userRegisterInfo.getUserId());// 用户id
 				userInfo.setPhone(phone);
 				userInfo.setStatus("01");
@@ -187,7 +203,7 @@ public class UserRegisterInfoController {
 			AcctUserAcctInfo record = new AcctUserAcctInfo();
 			// // 注册成功开账户
 			record.setUserId(userRegisterInfo.getUserId());
-			log.info("插入注册成功开账户&&&&&&&&&&&&&&userRegisterInfo.getUserId()="+userRegisterInfo.getUserId());
+//			log.info("插入注册成功开账户&&&&&&&&&&&&&&userRegisterInfo.getUserId()="+userRegisterInfo.getUserId());
 			record.setChannelNo("channel_no");
 			record.setCreditAmount(new BigDecimal(0));
 			record.setLoanAmount(new BigDecimal(0));
@@ -202,8 +218,8 @@ public class UserRegisterInfoController {
 				insertMap.put(UserLoginInfoConst.USER_ID, userRegisterInfo.getUserId());
 				insertMap.put(UserLoginInfoConst.LOGIN_TIME, new Date());
 				insertMap.put(UserLoginInfoConst.LOGIN_IP, ip);
-				insertMap.put(UserLoginInfoConst.LOGIN_REGION, ipL);
-				insertMap.put(UserLoginInfoConst.LOGIN_ADDRESS, ipMap);
+				insertMap.put(UserLoginInfoConst.LOGIN_REGION, address);
+				insertMap.put(UserLoginInfoConst.LOGIN_ADDRESS, address);
 				insertMap.put(UserLoginInfoConst.DEVICE_ID,  "device_id");
 				insertMap.put(UserLoginInfoConst.APP_STORE, "app_store");
 				insertMap.put(UserLoginInfoConst.CHANNEL_PACKAGE, "channel_package");

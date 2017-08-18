@@ -1,15 +1,19 @@
 package com.hyc;
 
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.hyc.druid.DruidDBConfig;
 import com.hyc.service.TuserService;
 
 /**
@@ -19,6 +23,7 @@ import com.hyc.service.TuserService;
 @EnableEurekaClient
 @RestController
 @ServletComponentScan
+//@EnableConfigurationProperties({DruidDBConfig.class})
 public class ServiceDemoApplication {
     @Resource
 //	@Autowired
