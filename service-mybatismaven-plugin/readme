@@ -1,5 +1,0 @@
-maven 自动化代码插件，源码包有问题，暂时不能修改
-
-可直接修改数据源后执行 
-
-mvn com.baomidou:mybatisplus-maven-plugin:1.0:code
